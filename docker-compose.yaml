@@ -2,9 +2,9 @@ version: '3'
 
 services:
   php-apache:
-    build:
-      context: . 
-      dockerfile: dockerfile
+    image: php:8.0-apache
+    volumes:
+      - ./src:/var/www/html
     ports:
     - "8080:80"
 
