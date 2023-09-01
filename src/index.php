@@ -7,11 +7,11 @@
   <title>Banco de dados</title>
 </head>
 <body>
-    <div class="center-box">
-        <input type="text" class="input1" placeholder="Itens">
-        <input type="text" class="input2" placeholder="N°">
+    <form class="center-box">
+        <input type="text" class="input1" placeholder="name">
+        <input type="text" class="input2" placeholder="qtd">
         <button type="submit" class="styled-button">Enviar</button><br><br\>
-      </div>
+    </form>
         
 	
 	<div class="table">
