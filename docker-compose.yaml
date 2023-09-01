@@ -2,9 +2,15 @@ version: '3'
 
 services:
   php-apache:
-    image: php:8.0-apache
+    build: 
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - ./src:/var/www/html
+    links:
+      - mariadb
+    networks:
+      - default
     ports:
     - "8080:80"
 
@@ -17,6 +23,10 @@ services:
       MYSQL_PASSWORD: user_password
     volumes:
       - mariadb-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - default
 
 volumes:
   mariadb-data:
