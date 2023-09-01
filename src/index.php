@@ -23,6 +23,14 @@
 		$insert->bindParam(":quantidade",$quantidade);
 		$insert->execute();
 	}
+
+	if(isset($_GET['delete'])){
+		$id = $_GET['delete'];
+		$delete = $pdo->prepare("DELETE FROM lista WHERE id = :id");
+		$delete->bindParam(':id',$id);
+		if($delete->execute())
+		echo "item deletado";
+	}
 ?>
 
     <form class="center-box" method = "POST">
@@ -35,8 +43,9 @@
 	
 	<div class="table">
 		<div class="table-header">
-			<div class="header__item"><a id="name" class="filter__link" href="#">Item</a></div>
-			<div class="header__item"><a id="wins" class="filter__link filter__link--number" href="#">Quantidade</a></div>
+			<div class="header__item">Item</div>
+			<div class="header__item">Quantidade</div>
+			<div class="header__item">Botoes</div>
 		</div>
 		<div class="table-content">	
 <?php
@@ -49,6 +58,7 @@
 				echo '<div class="table-row">';
 				echo '<div class="table-data">'.$value["nome"].'</div>';
 				echo '<div class="table-data">'.$value["quantidade"].'</div>';
+				echo '<div class="table-data"><a href="?delete='.$value['id'].'">Remover</a></div>';
 				echo '</div>';
 			}
 		}
