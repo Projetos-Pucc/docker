@@ -40,6 +40,3 @@ docker-compose up
 ### Acessando a aplicação pelo docker 
 No docker, acessar a porta web 8080:80
 ![image](img/docker_port.png)
-
-
-
