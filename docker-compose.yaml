@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  php-apache:
+    image: php:8.0-apache
+    volumes:
+      - ./src:/var/www/html
+    ports:
+    - "8080:80"
+
+  mariadb:
+    image: mariadb:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: mydatabase
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user_password
+    volumes:
+      - mariadb-data:/var/lib/mysql
+
+volumes:
+  mariadb-data:
