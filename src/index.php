@@ -28,8 +28,7 @@
 		$id = $_GET['delete'];
 		$delete = $pdo->prepare("DELETE FROM lista WHERE id = :id");
 		$delete->bindParam(':id',$id);
-		if($delete->execute())
-		echo "item deletado";
+		$delete->execute();
 	}
 ?>
 
